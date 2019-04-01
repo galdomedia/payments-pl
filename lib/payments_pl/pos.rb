@@ -150,7 +150,7 @@ module PaymentsPl
     def parse_response_body(body)
       body.gsub!("\r", "")
       pattern = /^(\w+):(?:[ ])?(.*)$/
-      data = body.scan(pattern)
+      data = body.scan(pattern).to_h
       OpenStruct.new(data)
     end
   end
